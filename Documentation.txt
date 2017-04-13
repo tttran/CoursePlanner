@@ -1,0 +1,9 @@
+Documentation/Design for our course planner
+
+Framework: Play
+
+Four Use Cases:
+- User can create check sheet
+- User can insert classes into checksheet
+- User can remove classes from checksheet
+- User can view class location on a map
