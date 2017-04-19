@@ -24,7 +24,7 @@ public class Building {
         return mapsName;
     }
 
-    public void setMapsName(){
+    public void setMapsName(String mapsName){
         this.mapsName = mapsName;
     }
 
