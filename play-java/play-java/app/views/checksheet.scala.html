@@ -1,0 +1,39 @@
+@(classSections: List[ClassSection])
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Pathways Builder</title>
+    <link rel="stylesheet"
+    href="@routes.Assets.versioned("bootstrap/bootstrap-3.3.7-dist/css/bootstrap.css")">
+    <script type='text/javascript'
+    src='@routes.Assets.versioned("bootstrap/bootstrap-3.3.7-dist/js/bootstrap.js")'></script>
+    </head>
+    <body>
+
+        <div class="container">
+            <h2>Hover Rows</h2>
+            <p>The .table-hover class enables a hover state on table rows:</p>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Class Name</th>
+                        <th>Classroom</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(classSection <- classSections){
+                        <tr>
+                            <td>@classSection.getClassCode().getName</td>
+                            <td>@classSection.getClassroom().getNumber @classSection.getClassroom().getBuilding().getName</td>
+                            <td><a href="@routes.HomeController.map(classSection.getClassroom().getBuilding().getMapsName())">Location</a></td>
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
