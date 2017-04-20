@@ -1,5 +1,8 @@
-package models;
 import junit.framework.TestCase;
+import models.Building;
+import models.ClassSection;
+
+import java.util.List;
 
 /**
  * Created by timothytran on 4/19/17.
@@ -24,10 +27,11 @@ public class BuildingTest extends TestCase {
         assertEquals(test.getMapsName(), "mapsName");
     }
 
-    public void setMapsName() {
+    public void testSetMapsName() {
         test.setMapsName("test");
         assertEquals(test.getName(), "test");
     }
+
 
 }
 
