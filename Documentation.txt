@@ -3,7 +3,7 @@ Documentation/Design for our course planner
 Framework: Play
 
 Four Use Cases:
-- User can create check sheet
-- User can insert classes into checksheet
-- User can remove classes from checksheet
+- Can view class/semester overview
+- User can see quickest route between classes
 - User can view class location on a map
+- User can add alternate stops in between classes (McCommas, Turners, etc)
