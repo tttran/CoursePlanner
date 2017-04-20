@@ -19,6 +19,28 @@ public class Checksheet {
         classList = new ArrayList<Class>();
     }
 
+    public Checksheet(String name, Term term, List<ClassSection> classSections, List<Class> classList) {
+        this.name = name;
+        this.term = term;
+        if (classSections != null)
+        {
+            this.classSections = classSections;
+        }
+        else
+        {
+            this.classSections = new ArrayList<ClassSection>();
+        }
+        if (classList != null)
+        {
+            this.classList = classList;
+        }
+        else
+        {
+            this.classList = new ArrayList<Class>();
+        }
+
+    }
+
     public String getName() {
         return name;
     }
@@ -57,5 +79,26 @@ public class Checksheet {
 
     public boolean removeClass(Class classCode){
         return classList.remove(classCode);
+    }
+
+    public ClassSection getPreviousClass(ClassSection section){
+        ClassSection previous = null;
+        int start = section.getBlock().getStartTime();
+        for(ClassSection s : classSections)
+        {
+            if (sameDay(section, s) && s != section && s.getBlock().getEndTime() < section.getBlock().getStartTime() &&
+                    (previous == null || start - s.getBlock().getEndTime() < start - previous.getBlock().getEndTime() ))
+            {
+                previous = s;
+            }
+        }
+        return previous;
+    }
+
+    private boolean sameDay(ClassSection a, ClassSection b)
+    {
+        return a.getBlock().getDay() == b.getBlock().getDay()
+                || (a.getBlock().getDay() == TimeBlock.Day.MW && b.getBlock().getDay() == TimeBlock.Day.MWF)
+                || (a.getBlock().getDay() == TimeBlock.Day.MWF && b.getBlock().getDay() == TimeBlock.Day.MW);
     }
 }

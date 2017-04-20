@@ -6,7 +6,7 @@ package models;
 public class TimeBlock {
     public enum Day
     {
-            MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY
+            MW, TR, MWF
     }
 
     private Day day;
@@ -42,5 +42,24 @@ public class TimeBlock {
 
     public void setDay(Day day) {
         this.day = day;
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder builder = new StringBuilder();
+        if (day == Day.MWF)
+        {
+            builder.append("MWF ");
+        }
+        else if (day == Day.MW)
+        {
+            builder.append("MW ");
+        }
+        else if (day == Day.TR)
+        {
+            builder.append("TR ");
+        }
+        builder.append(startTime / 60 + ":" + startTime % 60 + "-" + endTime / 60 + ":" + endTime % 60);
+        return builder.toString();
     }
 }

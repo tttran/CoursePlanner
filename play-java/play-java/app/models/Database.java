@@ -13,12 +13,12 @@ public class Database {
 
     public static Map<String, Building> buildings = new HashMap<String, Building>() {
         {
-            put("McBryde", new Building("McBryde", "McBryde Hall, Blacksburg, VA"));
-            put("Surge", new Building("Surge","Surge Space Building, Blacksburg, VA"));
-            put("Lavery", new Building("Lavery","Lavery Hall, Blacksburg, VA"));
+            put("McBryde", new Building("McBryde Hall", "McBryde Hall, Blacksburg, VA"));
+            put("Surge", new Building("Surge Space Building","Surge Space Building, Blacksburg, VA"));
+            put("Lavery", new Building("Lavery Hall","Lavery Hall, Blacksburg, VA"));
             put("Torg", new Building("Torgesen Hall", "Torgesen Hall, Blacksburg, VA"));
             put("NCB", new Building("New Classroom Building", "New Classroom Building, Blacksburg, VA"));
-            put("Randolph", new Building("Randolph", "Randolph, Blacksburg, VA"));
+            put("Randolph", new Building("Randolph Hall", "Randolph, Blacksburg, VA"));
         }
     };
 
@@ -57,23 +57,26 @@ public class Database {
 
     public static Map<String, TimeBlock> timeBlocks = new HashMap<String, TimeBlock>() {
         {
-            put("8T", new TimeBlock(480,555, TimeBlock.Day.TUESDAY));
-            put("14T", new TimeBlock(840, 915,TimeBlock.Day.TUESDAY));
-            put("12M", new TimeBlock(740, 790, TimeBlock.Day.MONDAY));
-            put("13M", new TimeBlock(805,855, TimeBlock.Day.MONDAY));
-            put("14M", new TimeBlock(870, 945,TimeBlock.Day.MONDAY));
+            put("8T", new TimeBlock(480,555, TimeBlock.Day.TR));
+            put("14T", new TimeBlock(840, 915,TimeBlock.Day.TR));
+            put("12M", new TimeBlock(740, 790, TimeBlock.Day.MWF));
+            put("13M", new TimeBlock(805,855, TimeBlock.Day.MWF));
+            put("14M", new TimeBlock(870, 945,TimeBlock.Day.MW));
         }
     };
 
     public static List<ClassSection> classSectionList = new ArrayList<ClassSection>() {
         {
             add(new ClassSection(12605,classrooms.get("TORG 3100"),timeBlocks.get("8T"),terms.get("Spring 2017"),classes.get("CS 3304")));
-            add(new ClassSection(15513,classrooms.get("MCB 304"),timeBlocks.get("13M"),terms.get("Spring 2017"),classes.get("MATH 4176")));
             add(new ClassSection(12616,classrooms.get("SURGE 107"),timeBlocks.get("14T"),terms.get("Spring 2017"),classes.get("CS 4104")));
+
+            add(new ClassSection(15511,classrooms.get("RAND 116"),timeBlocks.get("12M"),terms.get("Spring 2017"),classes.get("MATH 4134")));
+            add(new ClassSection(15513,classrooms.get("MCB 304"),timeBlocks.get("13M"),terms.get("Spring 2017"),classes.get("MATH 4176")));
             add(new ClassSection(12612,classrooms.get("NCB 250"),timeBlocks.get("14M"),terms.get("Spring 2017"),classes.get("CS 3704")));
-            add(new ClassSection(15511,classrooms.get("RAND 116"),timeBlocks.get("13M"),terms.get("Spring 2017"),classes.get("MATH 4134")));
         }
     };
+
+    public static Checksheet exampleSheet = new Checksheet("Example Checksheet",terms.get("Spring 2017"), classSectionList, null);
 
 
 }

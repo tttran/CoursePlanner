@@ -7,6 +7,10 @@ GET     /                           controllers.HomeController.index
 
 GET     /map/:mapsName            controllers.HomeController.map(mapsName)
 
+GET     /directions/:place1/:place2  controllers.HomeController.directions(place1, place2)
+
+GET    /export/:checksheetName        controllers.HomeController.export(checksheetName)
+
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count
 # An example controller showing how to write asynchronous code
