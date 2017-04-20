@@ -27,7 +27,8 @@
                         <tr>
                             <td>@classSection.getClassCode().getName</td>
                             <td>@classSection.getClassroom().getNumber @classSection.getClassroom().getBuilding().getName</td>
-                            <td><a href="@routes.HomeController.map(classSection.getClassroom().getBuilding().getMapsName())">Location</a></td>
+                            <td><a href="@routes.HomeController.map(classSection.getClassroom().getBuilding().getMapsName())" target="popup"
+                                   onclick="window.open('@routes.HomeController.map(classSection.getClassroom().getBuilding().getMapsName()','map','width=600,height=400')">Location</a></td>
                         </tr>
                     }
 
