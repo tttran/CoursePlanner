@@ -44,7 +44,7 @@ public class ChecksheetTest extends TestCase {
     public void testGetAndRemoveClassSections() {
         Building building = new Building("Stub", "Stub");
         Classroom classroom = new Classroom(1234, building);
-        Day day = Day.MONDAY;
+        Day day = Day.MWF;
         TimeBlock block = new TimeBlock(7, 9, day);
         Term term = new Term("Spring", 2017);
         Department department = new Department("CS");

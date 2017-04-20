@@ -9,7 +9,7 @@ public class TimeBlockTest extends TestCase {
 
     TimeBlock block;
     public void setUp() {
-        block = new TimeBlock(7, 9, TimeBlock.Day.TUESDAY);
+        block = new TimeBlock(7, 9, TimeBlock.Day.MWF);
     }
 
     public void testGetStartTime() {
@@ -32,11 +32,11 @@ public class TimeBlockTest extends TestCase {
     }
 
     public void testGetDay() {
-        assertEquals(block.getDay(), TimeBlock.Day.TUESDAY);
+        assertEquals(block.getDay(), TimeBlock.Day.MWF);
     }
 
     public void testSetDay() {
-        block.setDay(TimeBlock.Day.FRIDAY);
-        assertEquals(block.getDay(), TimeBlock.Day.FRIDAY);
+        block.setDay(TimeBlock.Day.MWF);
+        assertEquals(block.getDay(), TimeBlock.Day.MWF);
     }
 }

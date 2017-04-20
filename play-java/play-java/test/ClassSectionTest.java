@@ -17,7 +17,7 @@ public class ClassSectionTest extends TestCase {
     public void setUp() {
         Building building = new Building("Mybryde", "Stub");
         classroom = new Classroom(128, building);
-        timeblock = new TimeBlock(8, 10, TimeBlock.Day.TUESDAY);
+        timeblock = new TimeBlock(8, 10, TimeBlock.Day.TR);
         term = new Term("Spring", 2017);
         department = new Department("CS");
         classcode = new Class("CS101", 101, department);
@@ -50,7 +50,7 @@ public class ClassSectionTest extends TestCase {
     }
 
     public void testSetBlock() {
-        TimeBlock block = new TimeBlock(10, 12, TimeBlock.Day.FRIDAY);
+        TimeBlock block = new TimeBlock(10, 12, TimeBlock.Day.MW);
         classsection.setBlock(block);
         assertEquals(classsection.getBlock(), block);
     }
