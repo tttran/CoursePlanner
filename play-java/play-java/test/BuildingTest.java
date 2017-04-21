@@ -1,8 +1,5 @@
 import junit.framework.TestCase;
 import models.Building;
-import models.ClassSection;
-
-import java.util.List;
 
 /**
  * Created by timothytran on 4/19/17.
@@ -29,7 +26,7 @@ public class BuildingTest extends TestCase {
 
     public void testSetMapsName() {
         test.setMapsName("test");
-        assertEquals(test.getName(), "test");
+        assertEquals(test.getMapsName(), "test");
     }
 
 

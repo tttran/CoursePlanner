@@ -55,6 +55,25 @@ public class HomeController extends Controller {
         //Spoof call to database to find checksheetName
         Checksheet checksheet = Database.exampleSheet;
 
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        CalendarOutputter outputter = new CalendarOutputter();
+        Calendar cal = createCalendar(checksheet);
+
+        try {
+            outputter.output(cal, stream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (response() != null)
+        {
+            response().setHeader("Content-disposition","attachment; filename=calendar.ics");
+        }
+
+        return ok(stream.toByteArray());
+    }
+
+    public Calendar createCalendar(Checksheet checksheet) {
         Calendar cal= new Calendar();
         cal.getProperties().add(new ProdId("-//Ben Fortuna//iCal4j 1.0//EN"));
         cal.getProperties().add(Version.VERSION_2_0);
@@ -109,18 +128,6 @@ public class HomeController extends Controller {
                 cal.getComponents().add(event);
             }
         }
-
-
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        CalendarOutputter outputter = new CalendarOutputter();
-
-        try {
-            outputter.output(cal, stream);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        response().setHeader("Content-disposition","attachment; filename=calendar.ics");
-        return ok(stream.toByteArray());
+        return cal;
     }
 }
