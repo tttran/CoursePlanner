@@ -1,3 +1,5 @@
+Timothy Tran, Justin Hoeschler, Pourash Bhandari, Eric Weiler
+CS 3704 - Edmison
 Documentation/Design for our course planner
 
 Framework: Play
@@ -7,3 +9,8 @@ Four Use Cases:
 - User can see quickest route between classes
 - User can view class location on a map
 - User can add alternate stops in between classes (McCommas, Turners, etc)
+
+Directions on how to run the course planner
+- 
+
+Our code can be viewed at “https://github.com/tttran/CoursePlanner”
